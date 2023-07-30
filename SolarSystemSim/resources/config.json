@@ -1,0 +1,141 @@
+{
+  "celestialBody": {
+    "Sun": {
+      "scale": 1,
+      "texture": "./resources/textures/sun.jpg",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Mercury": {
+      "orbitParameters": {
+        "semiMajorAxis": 0.387,
+        "eccentricity": 0.2056,
+        "inclination": 7.004,
+        "longitudeOfAscendingNode": 48.331,
+        "argumentOfPeriapsis": 29.124
+      },
+      "scale": 0.383,
+      "texture": "./resources/textures/mercury.jpg",
+      "position": {
+        "x": -0.387,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Venus": {
+      "orbitParameters": {
+        "semiMajorAxis": 0.723,
+        "eccentricity": 0.0068,
+        "inclination": 3.394,
+        "longitudeOfAscendingNode": 76.680,
+        "argumentOfPeriapsis": 54.884
+      },
+      "scale": 0.949,
+      "texture": "./resources/textures/venus.jpg",
+      "position": {
+        "x": -0.723,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Earth": {
+      "orbitParameters": {
+        "semiMajorAxis": 1.000,
+        "eccentricity": 0.0167,
+        "inclination": 0.000,
+        "longitudeOfAscendingNode": -11.260,
+        "argumentOfPeriapsis": 114.207
+      },
+      "scale": 1.000,
+      "texture": "./resources/textures/earth.jpg",
+      "position": {
+        "x": -1.000,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Mars": {
+      "orbitParameters": {
+        "semiMajorAxis": 1.524,
+        "eccentricity": 0.0934,
+        "inclination": 1.849,
+        "longitudeOfAscendingNode": 49.558,
+        "argumentOfPeriapsis": 286.502
+      },
+      "scale": 0.532,
+      "texture": "./resources/textures/mars.jpg",
+      "position": {
+        "x": -1.524,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Jupiter": {
+      "orbitParameters": {
+        "semiMajorAxis": 5.203,
+        "eccentricity": 0.0484,
+        "inclination": 1.303,
+        "longitudeOfAscendingNode": 100.464,
+        "argumentOfPeriapsis": 273.867
+      },
+      "scale": 11.209,
+      "texture": "./resources/textures/jupiter.jpg",
+      "position": {
+        "x": -5.203,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Saturn": {
+      "orbitParameters": {
+        "semiMajorAxis": 9.537,
+        "eccentricity": 0.0542,
+        "inclination": 2.485,
+        "longitudeOfAscendingNode": 113.665,
+        "argumentOfPeriapsis": 339.392
+      },
+      "scale": 9.449,
+      "texture": "./resources/textures/saturn.jpg",
+      "position": {
+        "x": -9.537,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Uranus": {
+      "orbitParameters": {
+        "semiMajorAxis": 19.191,
+        "eccentricity": 0.0472,
+        "inclination": 0.772,
+        "longitudeOfAscendingNode": 74.006,
+        "argumentOfPeriapsis": 96.998
+      },
+      "scale": 4.007,
+      "texture": "./resources/textures/uranus.jpg",
+      "position": {
+        "x": -19.191,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Neptune": {
+      "orbitParameters": {
+        "semiMajorAxis": 30.069,
+        "eccentricity": 0.0086,
+        "inclination": 1.769,
+        "longitudeOfAscendingNode": 131.784,
+        "argumentOfPeriapsis": 276.336
+      },
+      "scale": 3.883,
+      "texture": "./resources/textures/neptune.jpg",
+      "position": {
+        "x": -30.069,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  }
+}
