@@ -15,6 +15,11 @@ CelestialBody::CelestialBody(const std::string& name)
 
 void CelestialBody::initialize()
 {
+	//TODO: please change this
+	if (m_name == "Sun")
+	{
+		getComponent<CelestialBodyRenderer>()->lights = true;
+	}
 	getComponent<CelestialBodyRenderer>()->initialize();
 }
 

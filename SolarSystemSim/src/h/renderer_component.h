@@ -34,6 +34,7 @@ protected:
 	{
 		unsigned int VAO;
 		unsigned int VBO;
+		unsigned int normalsVBO;
 		unsigned int EBO;
 		unsigned int texture;
 	};

@@ -195,6 +195,7 @@
     <None Include="src\shaders\shader_orbit.fs" />
     <None Include="src\shaders\shader_skybox.fs" />
     <None Include="src\shaders\shader_skybox.vs" />
+    <None Include="src\shaders\shader_sun.fs" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="libs\imgui\imgui.natvis" />

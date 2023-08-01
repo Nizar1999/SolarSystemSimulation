@@ -9,6 +9,7 @@ namespace RenderingContext
 	Shader* m_shader = nullptr;
 	Shader* m_skyboxShader = nullptr;
 	Shader* m_orbitShader = nullptr;
+	Shader* m_sunShader = nullptr;
 
 	Camera m_camera(glm::vec3(0.0f, 100.0f, 150.0f));
 
@@ -113,6 +114,7 @@ namespace RenderingContext
 		m_shader = new Shader("./src/shaders/shader.vs", "./src/shaders/shader.fs");
 		m_skyboxShader = new Shader("./src/shaders/shader_skybox.vs", "./src/shaders/shader_skybox.fs");
 		m_orbitShader = new Shader("./src/shaders/shader.vs", "./src/shaders/shader_orbit.fs");
+		m_sunShader = new Shader("./src/shaders/shader.vs", "./src/shaders/shader_sun.fs");
 
 		glEnable(GL_DEPTH_TEST);
 

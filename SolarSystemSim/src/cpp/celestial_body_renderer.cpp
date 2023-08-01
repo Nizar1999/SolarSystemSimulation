@@ -9,25 +9,40 @@ void CelestialBodyRenderer::initialize()
 {
 	unsigned int VAO;
 	unsigned int VBO;
+	unsigned int normalsVBO;
 	unsigned int EBO;
 
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &normalsVBO);
 	glGenBuffers(1, &EBO);
 
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * m_vertices.size(), m_vertices.data(), GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_indices.size() * sizeof(unsigned int), m_indices.data(), GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+
+	glBindBuffer(GL_ARRAY_BUFFER, normalsVBO);
+	glBufferData(GL_ARRAY_BUFFER, m_normals.size() * sizeof(float), m_normals.data(), GL_STATIC_DRAW);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)(0));
+
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
-	RenderingContext::m_shader->use();
+	//TODO: inject the shader instead
+	if (lights)
+	{
+		RenderingContext::m_sunShader->use();
+	}
+	else
+	{
+		RenderingContext::m_shader->use();
+	}
 	glEnable(GL_DEPTH_TEST);
 
 	unsigned int texture;
@@ -54,12 +69,22 @@ void CelestialBodyRenderer::initialize()
 		std::cout << "Failed to load texture" << std::endl;
 	}
 	stbi_image_free(data);
-	RenderingContext::m_shader->setInt("SurfaceTex", 0);
 
-	m_renderingInfo = { VAO, VBO, EBO, texture };
+	//TODO: inject the shader instead
+	if (lights)
+	{
+		RenderingContext::m_sunShader->setInt("SurfaceTex", 0);
+	}
+	else
+	{
+		RenderingContext::m_shader->setInt("SurfaceTex", 0);
+	}
+
+	m_renderingInfo = { VAO, VBO, normalsVBO, EBO, texture };
 
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
@@ -71,6 +96,7 @@ void CelestialBodyRenderer::update()
 	glBindTexture(GL_TEXTURE_2D, m_renderingInfo.texture);
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
 	glm::mat4 projection = glm::perspective(glm::radians(RenderingContext::m_camera.Zoom), (float)RenderingContext::m_width / (float)RenderingContext::m_height, 0.1f, 10000.0f);
 
@@ -87,15 +113,31 @@ void CelestialBodyRenderer::update()
 	model = glm::scale(model, m_transform->m_scale);
 
 
-	RenderingContext::m_shader->use();
-	RenderingContext::m_shader->setMat4("projection", projection);
-	RenderingContext::m_shader->setMat4("view", RenderingContext::m_camera.GetViewMatrix());
-	RenderingContext::m_shader->setMat4("model", model);
+	//TODO: inject shader
+	if (lights)
+	{
+		RenderingContext::m_sunShader->use();
+		RenderingContext::m_sunShader->setMat4("projection", projection);
+		RenderingContext::m_sunShader->setMat4("view", RenderingContext::m_camera.GetViewMatrix());
+		RenderingContext::m_sunShader->setMat4("model", model);
+	}
+	else
+	{
+		RenderingContext::m_shader->use();
+		RenderingContext::m_shader->setVec3("objectColor", { 1.0f, 1.0f, 1.0f });
+		RenderingContext::m_shader->setVec3("lightColor", { 1.0f, 1.0f, 1.0f });
+		RenderingContext::m_shader->setVec3("lightPos", { 0.0f, 0.0f, 0.0f }); //TODO: give it the actual position of the sun
+
+		RenderingContext::m_shader->setMat4("projection", projection);
+		RenderingContext::m_shader->setMat4("view", RenderingContext::m_camera.GetViewMatrix());
+		RenderingContext::m_shader->setMat4("model", model);
+	}
 
 	glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
 
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
@@ -124,6 +166,10 @@ void CelestialBodyRenderer::generateSphereVertices(float radius, int slices, int
 			m_vertices.push_back(radius * x);
 			m_vertices.push_back(radius * y);
 			m_vertices.push_back(radius * z);
+
+			m_normals.push_back(x);
+			m_normals.push_back(y);
+			m_normals.push_back(z);
 
 			m_vertices.push_back(u);
 			m_vertices.push_back(v);

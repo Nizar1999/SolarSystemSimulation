@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 #include "camera.h"
 #include "shader.h"
@@ -10,6 +11,7 @@ namespace RenderingContext
 	extern Shader* m_shader;
 	extern Shader* m_skyboxShader;
 	extern Shader* m_orbitShader;
+	extern Shader* m_sunShader;
 
 	extern Camera m_camera;
 

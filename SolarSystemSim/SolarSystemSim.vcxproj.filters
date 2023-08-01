@@ -167,6 +167,7 @@
     <None Include="src\shaders\shader_skybox.vs" />
     <None Include="src\shaders\shader_orbit.fs" />
     <None Include="libs\imgui\imgui.natstepfilter" />
+    <None Include="src\shaders\shader_sun.fs" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="libs\imgui\imgui.natvis" />
