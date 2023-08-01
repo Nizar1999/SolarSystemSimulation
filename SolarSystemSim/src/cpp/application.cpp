@@ -1,7 +1,4 @@
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-
+#include "gui.h"
 #include "application.h"
 
 Application::Application(unsigned int width, unsigned int height)
@@ -9,6 +6,11 @@ Application::Application(unsigned int width, unsigned int height)
 	RenderingContext::initialize(width, height);
 	m_solarSystem.initialize();
 	m_skybox.initialize();
+}
+
+Application::~Application()
+{
+	RenderingContext::cleanup();
 }
 
 void Application::run()
@@ -25,23 +27,16 @@ void Application::run()
 		glfwPollEvents();
 		processInput();
 
-		if (RenderingContext::m_focusGUI)
-		{
-			ImGui_ImplOpenGL3_NewFrame();
-			ImGui_ImplGlfw_NewFrame();
-			ImGui::NewFrame();
-			ImGui::Text("Camera speed: ");
-			ImGui::SliderFloat("float", &(RenderingContext::m_camera.MovementSpeed), 0.0f, 100.0f);
-			ImGui::ColorEdit4("Color", glm::value_ptr(OrbitRenderer::m_color));
-		}
 
 		m_solarSystem.update(scaledTime);
 		m_skybox.update();
 
 		if (RenderingContext::m_focusGUI)
 		{
-			ImGui::Render();
-			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+			Gui::beginGuiFrame();
+			Gui::addSliderFloat("Camera speed", "units/s", RenderingContext::m_camera.MovementSpeed, 0.0f, 100.0f);
+			Gui::addColorEdit("Orbit Color", glm::value_ptr(OrbitRenderer::m_color));
+			Gui::renderGuiFrame();
 		}
 
 		glfwSwapBuffers(RenderingContext::m_window);

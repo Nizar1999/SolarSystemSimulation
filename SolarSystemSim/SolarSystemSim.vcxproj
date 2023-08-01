@@ -149,6 +149,7 @@
     <ClCompile Include="src\cpp\celestial_body.cpp" />
     <ClCompile Include="src\cpp\celestial_body_renderer.cpp" />
     <ClCompile Include="src\cpp\entity.cpp" />
+    <ClCompile Include="src\cpp\gui.cpp" />
     <ClCompile Include="src\cpp\main.cpp" />
     <ClCompile Include="src\cpp\orbit.cpp" />
     <ClCompile Include="src\cpp\orbit_renderer.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\h\celestial_body_renderer.h" />
     <ClInclude Include="src\h\component.h" />
     <ClInclude Include="src\h\entity.h" />
+    <ClInclude Include="src\h\gui.h" />
     <ClInclude Include="src\h\orbit.h" />
     <ClInclude Include="src\h\orbit_renderer.h" />
     <ClInclude Include="src\h\renderer_component.h" />

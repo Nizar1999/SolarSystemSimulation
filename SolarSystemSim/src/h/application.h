@@ -8,6 +8,7 @@ class Application
 {
 public:
 	Application(unsigned int width, unsigned int height);
+	~Application();
 	void run();
 
 private:
