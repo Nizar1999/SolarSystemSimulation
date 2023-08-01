@@ -15,7 +15,7 @@ private:
 	SkyboxRenderer m_skybox;
 	bool keyPressed = false;
 	SolarSystem m_solarSystem;
-	float m_timeScale = 0.1f;
+	float m_timeScale = 0.001f;
 
 	void processInput();
 };

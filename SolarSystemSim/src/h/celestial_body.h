@@ -29,6 +29,7 @@ public:
 	}
 
 	std::unique_ptr<Orbit> m_orbit;
+	static CelestialBody* activeBody;
 private:
 	//Config
 	static nlohmann::json m_planetaryInformation;

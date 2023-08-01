@@ -3,6 +3,7 @@
 #include <iostream>
 
 nlohmann::json CelestialBody::m_planetaryInformation = CelestialBody::readPlanetaryInformationFile();
+CelestialBody* CelestialBody::activeBody = nullptr;
 
 CelestialBody::CelestialBody(const std::string& name)
 	: m_name(name)
@@ -59,12 +60,14 @@ void CelestialBody::update(float deltaTime)
 {
 	TransformComponent* transform = getComponent<TransformComponent>();
 	updateRotationalAngle(deltaTime);
+
+
 	if (hasOrbit())
 	{
 		m_orbit->update(deltaTime);
 		transform->m_position = m_orbit->getOrbitalCoordinates();
 
-		float distanceFactor = 20.0f;
+		float distanceFactor = 1000.0f; //TODO: factorize
 		auto model = glm::mat4(1.0f);
 
 		model = glm::translate(model, transform->m_world);

@@ -28,6 +28,7 @@ const float ZOOM = 45.0f;
 class Camera
 {
 public:
+	bool attached = false;
 	// camera Attributes
 	glm::vec3 Position;
 	glm::vec3 Front;
@@ -70,6 +71,10 @@ public:
 	// processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
 	void ProcessKeyboard(Camera_Movement direction, float deltaTime)
 	{
+		if (attached)
+		{
+			return;
+		}
 		float velocity = MovementSpeed * deltaTime;
 		if (direction == FORWARD)
 			Position += Front * velocity;

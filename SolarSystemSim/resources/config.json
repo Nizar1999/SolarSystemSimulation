@@ -1,7 +1,7 @@
 {
   "celestialBody": {
     "Sun": {
-      "scale": 1,
+      "scale": 109,
       "texture": "./resources/textures/sun.jpg",
       "position": {
         "x": 0.0,

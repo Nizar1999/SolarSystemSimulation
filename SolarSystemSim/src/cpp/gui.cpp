@@ -27,3 +27,8 @@ void Gui::renderGuiFrame()
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
+
+void Gui::addCombo(std::string_view title, std::vector<const char*>& items, int& selectedItem)
+{
+	ImGui::Combo(title.data(), &selectedItem, items.data(), items.size());
+}

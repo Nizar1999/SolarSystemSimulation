@@ -15,6 +15,9 @@ Application::~Application()
 
 void Application::run()
 {
+	std::vector<const char*> items = { "Free Cam", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune" };
+	int selectedItem = 0; // Index of the selected item (default: 0)
+
 	while (!glfwWindowShouldClose(RenderingContext::m_window))
 	{
 		auto scaledTime = static_cast<float>(glfwGetTime() * m_timeScale);
@@ -36,9 +39,31 @@ void Application::run()
 			Gui::beginGuiFrame();
 			Gui::addSliderFloat("Camera speed", "units/s", RenderingContext::m_camera.MovementSpeed, 0.0f, 100.0f);
 			Gui::addColorEdit("Orbit Color", glm::value_ptr(OrbitRenderer::m_color));
+			Gui::addCombo("Attach to: ", items, selectedItem);
+
+			//TODO: refactor
+			if (selectedItem != 0)
+			{
+				CelestialBody::activeBody = &(m_solarSystem.m_bodies[selectedItem]);
+				RenderingContext::m_camera.attached = true;
+			}
+			else
+			{
+				CelestialBody::activeBody = nullptr;
+				RenderingContext::m_camera.attached = false;
+			}
+
 			Gui::renderGuiFrame();
 		}
 
+		//TODO: fix
+		if (CelestialBody::activeBody)
+		{
+			float cameraDistance = 1.0f;
+			float distanceFactor = 1000.0f; //TODO: factorize	
+			glm::vec3 orbitalCoordinates = CelestialBody::activeBody->getComponent<TransformComponent>()->m_position * cameraDistance * (distanceFactor / 2);
+			RenderingContext::m_camera.Position = orbitalCoordinates;
+		}
 		glfwSwapBuffers(RenderingContext::m_window);
 	}
 }

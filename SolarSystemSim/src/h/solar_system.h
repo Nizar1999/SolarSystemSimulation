@@ -11,7 +11,6 @@ public:
 	void initialize();
 	void update(float scaledTime);
 
-private:
 	std::vector<CelestialBody> m_bodies;
 };
 
