@@ -9,7 +9,7 @@ public:
 	void initialize() override;
 	void update() override;
 
-	bool lights = false;
+	bool lights = false; //TODO: refactor
 private:
 	std::vector<float> m_vertices;
 	std::vector<unsigned int> m_indices;
