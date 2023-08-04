@@ -69,8 +69,8 @@
       "texture": "./resources/textures/mars.jpg",
       "position": {
         "x": -1.524,
-        "y": 0.0,
-        "z": 0.0
+        "y": 0.05,
+        "z": 0.1
       }
     },
     "Jupiter": {
@@ -85,8 +85,8 @@
       "texture": "./resources/textures/jupiter.jpg",
       "position": {
         "x": -5.203,
-        "y": 0.0,
-        "z": 0.0
+        "y": 0.1,
+        "z": 0.2
       }
     },
     "Saturn": {
@@ -101,8 +101,8 @@
       "texture": "./resources/textures/saturn.jpg",
       "position": {
         "x": -9.537,
-        "y": 0.0,
-        "z": 0.0
+        "y": 0.15,
+        "z": 0.3
       }
     },
     "Uranus": {
@@ -117,8 +117,8 @@
       "texture": "./resources/textures/uranus.jpg",
       "position": {
         "x": -19.191,
-        "y": 0.0,
-        "z": 0.0
+        "y": 0.2,
+        "z": 0.4
       }
     },
     "Neptune": {
@@ -133,8 +133,8 @@
       "texture": "./resources/textures/neptune.jpg",
       "position": {
         "x": -30.069,
-        "y": 0.0,
-        "z": 0.0
+        "y": 0.25,
+        "z": 0.5
       }
     }
   }

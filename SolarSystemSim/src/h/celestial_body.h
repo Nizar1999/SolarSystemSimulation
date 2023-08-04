@@ -23,6 +23,12 @@ public:
 	{
 		return m_name;
 	}
+
+	glm::vec3 getPosition()
+	{
+		return getComponent<TransformComponent>()->m_position;
+	}
+
 	bool hasOrbit() const
 	{
 		return m_orbit != nullptr;
