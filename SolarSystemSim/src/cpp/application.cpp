@@ -31,6 +31,7 @@ void Application::run()
 		RenderingContext::updateDeltaTime();
 
 		glfwPollEvents();
+
 		Input::processInputPerFrame();
 
 		m_solarSystem.update(scaledTime);

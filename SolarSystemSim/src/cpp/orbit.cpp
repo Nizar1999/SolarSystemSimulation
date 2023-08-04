@@ -51,7 +51,7 @@ void Orbit::updateOrbitalCoordinates(float time)
 	// Calculate position in 3D space (x, y, z)
 	float z = distance * std::sin(trueAnomaly + m_orbitalParameters.argumentOfPeriapsis) * std::sin(m_orbitalParameters.inclination);
 
-	m_orbitalCoordinates = glm::vec3(x, y, z);
+	m_orbitalCoordinates = glm::vec3(x, z, y); //Necessary to switch the y and z (z represents vertical displacement)
 }
 
 void Orbit::flushOrbitTrace()

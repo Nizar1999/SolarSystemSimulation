@@ -1,6 +1,6 @@
 #include "orbit_renderer.h"
 
-glm::vec4 OrbitRenderer::m_color = { 1.0f, 1.0f, 1.0f, 1.0f };
+glm::vec4 OrbitRenderer::m_color = { 0.45f, 0.45f, 0.45f, 0.45f };
 
 OrbitRenderer::OrbitRenderer(TransformComponent* transform)
 	: RendererComponent(transform)

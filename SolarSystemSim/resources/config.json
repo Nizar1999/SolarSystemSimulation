@@ -13,9 +13,9 @@
       "orbitParameters": {
         "semiMajorAxis": 0.387,
         "eccentricity": 0.2056,
-        "inclination": 7.004,
-        "longitudeOfAscendingNode": 48.331,
-        "argumentOfPeriapsis": 29.124
+        "inclination": 0.0523599,
+        "longitudeOfAscendingNode": 0.84454,
+        "argumentOfPeriapsis": 0.50853
       },
       "scale": 0.383,
       "texture": "./resources/textures/mercury.jpg",
@@ -29,9 +29,9 @@
       "orbitParameters": {
         "semiMajorAxis": 0.723,
         "eccentricity": 0.0068,
-        "inclination": 3.394,
-        "longitudeOfAscendingNode": 76.680,
-        "argumentOfPeriapsis": 54.884
+        "inclination": 0.05987,
+        "longitudeOfAscendingNode": 1.3392,
+        "argumentOfPeriapsis": 0.95723
       },
       "scale": 0.949,
       "texture": "./resources/textures/venus.jpg",
@@ -45,9 +45,9 @@
       "orbitParameters": {
         "semiMajorAxis": 1.000,
         "eccentricity": 0.0167,
-        "inclination": 0.000,
-        "longitudeOfAscendingNode": -11.260,
-        "argumentOfPeriapsis": 114.207
+        "inclination": 0.0,
+        "longitudeOfAscendingNode": -0.19635,
+        "argumentOfPeriapsis": 1.9927
       },
       "scale": 1.000,
       "texture": "./resources/textures/earth.jpg",
@@ -61,9 +61,9 @@
       "orbitParameters": {
         "semiMajorAxis": 1.524,
         "eccentricity": 0.0934,
-        "inclination": 1.849,
-        "longitudeOfAscendingNode": 49.558,
-        "argumentOfPeriapsis": 286.502
+        "inclination": 0.0174533,
+        "longitudeOfAscendingNode": 0.86368,
+        "argumentOfPeriapsis": 4.9925
       },
       "scale": 0.532,
       "texture": "./resources/textures/mars.jpg",
@@ -77,9 +77,9 @@
       "orbitParameters": {
         "semiMajorAxis": 5.203,
         "eccentricity": 0.0484,
-        "inclination": 1.303,
-        "longitudeOfAscendingNode": 100.464,
-        "argumentOfPeriapsis": 273.867
+        "inclination": 0.00872665,
+        "longitudeOfAscendingNode": 1.753,
+        "argumentOfPeriapsis": 4.7783
       },
       "scale": 11.209,
       "texture": "./resources/textures/jupiter.jpg",
@@ -93,9 +93,9 @@
       "orbitParameters": {
         "semiMajorAxis": 9.537,
         "eccentricity": 0.0542,
-        "inclination": 2.485,
-        "longitudeOfAscendingNode": 113.665,
-        "argumentOfPeriapsis": 339.392
+        "inclination": 0.00349066,
+        "longitudeOfAscendingNode": 1.9835,
+        "argumentOfPeriapsis": 5.9242
       },
       "scale": 9.449,
       "texture": "./resources/textures/saturn.jpg",
@@ -109,9 +109,9 @@
       "orbitParameters": {
         "semiMajorAxis": 19.191,
         "eccentricity": 0.0472,
-        "inclination": 0.772,
-        "longitudeOfAscendingNode": 74.006,
-        "argumentOfPeriapsis": 96.998
+        "inclination": 0.00174533,
+        "longitudeOfAscendingNode": 1.2915,
+        "argumentOfPeriapsis": 1.6919
       },
       "scale": 4.007,
       "texture": "./resources/textures/uranus.jpg",
@@ -125,9 +125,9 @@
       "orbitParameters": {
         "semiMajorAxis": 30.069,
         "eccentricity": 0.0086,
-        "inclination": 1.769,
-        "longitudeOfAscendingNode": 131.784,
-        "argumentOfPeriapsis": 276.336
+        "inclination": 0.000872665,
+        "longitudeOfAscendingNode": 2.2981,
+        "argumentOfPeriapsis": 4.8077
       },
       "scale": 3.883,
       "texture": "./resources/textures/neptune.jpg",
