@@ -17,7 +17,7 @@ namespace RenderingContext
 	unsigned int m_height;
 	float m_distanceFactor = 25.0f; //Distance factor between celestial bodies being rendered	
 	bool m_renderOrbits = true;
-	float m_timeScale = 0.1f;
+	float m_timeScale = 0.040f;
 
 	GLFWwindow* m_window = nullptr;
 

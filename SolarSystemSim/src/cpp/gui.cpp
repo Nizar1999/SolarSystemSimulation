@@ -11,10 +11,22 @@ void Gui::beginGuiFrame()
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
+	ImVec4 newBgColor(0.0f, 0.0f, 0.0f, 0.0f);
+	ImVec4 newTitleBarColor(0.0f, 0.0f, 0.0f, 0.7f);
+	ImGuiStyle& style = ImGui::GetStyle();
+	style.Colors[ImGuiCol_WindowBg] = newBgColor;
+
+	style.Colors[ImGuiCol_TitleBg] = newTitleBarColor; // For title bar background
+	style.Colors[ImGuiCol_TitleBgActive] = newTitleBarColor; // For active title bar background
+	style.Colors[ImGuiCol_TitleBgCollapsed] = newTitleBarColor; // For collapsed title bar background
+
+	ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f));
+	ImGui::Begin("Configuration");
 }
 
 void Gui::renderGuiFrame()
 {
+	ImGui::End();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
