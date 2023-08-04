@@ -16,7 +16,7 @@ CelestialBody::CelestialBody(const std::string& name)
 
 void CelestialBody::initialize()
 {
-	//TODO: please change this
+	//TODO: Need to change this
 	if (m_name == "Sun")
 	{
 		getComponent<CelestialBodyRenderer>()->lights = true;
@@ -67,11 +67,10 @@ void CelestialBody::update(float deltaTime)
 		m_orbit->update(deltaTime);
 		transform->m_position = m_orbit->getOrbitalCoordinates();
 
-		float distanceFactor = 1000.0f; //TODO: factorize
 		auto model = glm::mat4(1.0f);
 
 		model = glm::translate(model, transform->m_world);
-		glm::vec3 orbitalCoordinates = transform->m_position * (distanceFactor / 2);
+		glm::vec3 orbitalCoordinates = transform->m_position * RenderingContext::m_distanceFactor;
 
 		model = glm::translate(model, orbitalCoordinates);
 		model = glm::rotate(model, transform->m_rotation, glm::vec3(0.0f, 1.0f, 0.0f));

@@ -20,7 +20,7 @@ void Application::run()
 
 	while (!glfwWindowShouldClose(RenderingContext::m_window))
 	{
-		auto scaledTime = static_cast<float>(glfwGetTime() * m_timeScale);
+		auto scaledTime = static_cast<float>(glfwGetTime() * RenderingContext::m_timeScale);
 
 		glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -36,10 +36,25 @@ void Application::run()
 
 		if (RenderingContext::m_focusGUI)
 		{
+			float k = 1.0f;
 			Gui::beginGuiFrame();
-			Gui::addSliderFloat("Camera speed", "units/s", RenderingContext::m_camera.MovementSpeed, 0.0f, 100.0f);
+			Gui::addSliderFloat("Camera Speed", &RenderingContext::m_camera.MovementSpeed, 0.0f, 100.0f);
+			Gui::addSliderFloat("Time Scale", &RenderingContext::m_timeScale, 0.0f, 1.0f);
+			Gui::addSliderFloat("Distance Factor", &RenderingContext::m_distanceFactor, 0.0f, 500.0f);
 			Gui::addColorEdit("Orbit Color", glm::value_ptr(OrbitRenderer::m_color));
-			Gui::addCombo("Attach to: ", items, selectedItem);
+			Gui::addCombo("Camera Position", items, selectedItem);
+			Gui::addCheckbox("Show Orbits", RenderingContext::m_renderOrbits);
+			auto resetOrbits = [&]() {
+				for (auto& body : m_solarSystem.m_bodies)
+				{
+					if (body.hasOrbit())
+					{
+						body.m_orbit->flushOrbitTrace();
+					}
+
+				}
+			};
+			Gui::addButton("Reset Orbits", resetOrbits);
 
 			//TODO: refactor
 			if (selectedItem != 0)
@@ -59,9 +74,13 @@ void Application::run()
 		//TODO: fix
 		if (CelestialBody::activeBody)
 		{
-			float cameraDistance = 1.0f;
-			float distanceFactor = 1000.0f; //TODO: factorize	
-			glm::vec3 orbitalCoordinates = CelestialBody::activeBody->getComponent<TransformComponent>()->m_position * cameraDistance * (distanceFactor / 2);
+			glm::vec3 celestialBodyPosition = CelestialBody::activeBody->getComponent<TransformComponent>()->m_position;
+			glm::vec3 offset = glm::vec3(0.0f, 0.1f, -0.5f); // Example offset
+			glm::vec3 cameraPosition = celestialBodyPosition + offset;
+			// Calculate camera's target position (look toward the sun)
+			glm::vec3 cameraTarget = celestialBodyPosition - m_solarSystem.m_bodies[0].getComponent<TransformComponent>()->m_position;
+			glm::vec3 orbitalCoordinates = cameraPosition * RenderingContext::m_distanceFactor;
+			RenderingContext::m_camera.vm = glm::lookAt(orbitalCoordinates, cameraTarget, glm::vec3(0.0f, 1.0f, 0.0f));
 			RenderingContext::m_camera.Position = orbitalCoordinates;
 		}
 		glfwSwapBuffers(RenderingContext::m_window);

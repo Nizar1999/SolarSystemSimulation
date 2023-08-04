@@ -15,6 +15,7 @@ public:
 	void update(float deltaTime) override;
 
 	void updateOrbitalCoordinates(float time);
+	void flushOrbitTrace();
 	glm::vec3 getOrbitalCoordinates() const
 	{
 		return m_orbitalCoordinates;

@@ -17,6 +17,9 @@ namespace RenderingContext
 
 	extern unsigned int m_width;
 	extern unsigned int m_height;
+	extern float m_distanceFactor;
+	extern bool m_renderOrbits;
+	extern float m_timeScale;
 
 	extern GLFWwindow* m_window;
 

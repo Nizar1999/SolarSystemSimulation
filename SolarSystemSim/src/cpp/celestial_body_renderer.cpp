@@ -105,8 +105,7 @@ void CelestialBodyRenderer::update()
 	model = glm::translate(model, m_transform->m_world);
 
 	// Update model matrix with orbital coordinates, orbital rotation and planetary scale
-	float distanceFactor = 1000.0f; //TODO: factorize	
-	glm::vec3 orbitalCoordinates = m_transform->m_position * (distanceFactor / 2);
+	glm::vec3 orbitalCoordinates = m_transform->m_position * RenderingContext::m_distanceFactor;
 
 	model = glm::translate(model, orbitalCoordinates);
 	model = glm::rotate(model, m_transform->m_rotation, glm::vec3(0.0f, 1.0f, 0.0f));

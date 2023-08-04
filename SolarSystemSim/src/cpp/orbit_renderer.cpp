@@ -16,6 +16,10 @@ void OrbitRenderer::initialize()
 
 void OrbitRenderer::update()
 {
+	if (!RenderingContext::m_renderOrbits)
+	{
+		return;
+	}
 	glBindVertexArray(m_renderingInfo.VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_renderingInfo.VBO);
 	glBindTexture(GL_TEXTURE_2D, 0);

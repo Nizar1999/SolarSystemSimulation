@@ -11,10 +11,9 @@ void Gui::beginGuiFrame()
 	ImGui::NewFrame();
 }
 
-void Gui::addSliderFloat(std::string_view title, std::string_view units, float& val, float min, float max)
+void Gui::addSliderFloat(std::string_view title, float* val, float min, float max)
 {
-	ImGui::Text(title.data());
-	ImGui::SliderFloat(units.data(), &val, min, max);
+	ImGui::SliderFloat(title.data(), val, min, max);
 }
 
 void Gui::addColorEdit(std::string_view title, float val[4])
@@ -31,4 +30,17 @@ void Gui::renderGuiFrame()
 void Gui::addCombo(std::string_view title, std::vector<const char*>& items, int& selectedItem)
 {
 	ImGui::Combo(title.data(), &selectedItem, items.data(), items.size());
+}
+
+void Gui::addCheckbox(std::string_view title, bool& val)
+{
+	ImGui::Checkbox(title.data(), &val);
+}
+
+void Gui::addButton(std::string_view title, const std::function<void()>& lambda)
+{
+	if (ImGui::Button(title.data()))
+	{
+		lambda();
+	}
 }

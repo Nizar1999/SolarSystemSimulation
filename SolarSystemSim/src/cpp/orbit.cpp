@@ -53,3 +53,8 @@ void Orbit::updateOrbitalCoordinates(float time)
 
 	m_orbitalCoordinates = glm::vec3(x, z, y);
 }
+
+void Orbit::flushOrbitTrace()
+{
+	getComponent<OrbitRenderer>()->m_orbitTrace.clear();
+}
