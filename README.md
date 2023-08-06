@@ -7,14 +7,30 @@
 
 ## Motivation
 
-Mess around with OpenGL and Dear ImGui and make a cool rendering project (def incomplete and needs reworking certain parts that I just got bored from working on)
+Mess around with OpenGL and Dear ImGui and make a cool rendering project
+
+## Showcase
+![screen-gif](./screenshots/preview.gif)
 
 ## Features
+
+### Configuration Menu
+Camera Speed, Attach Camera to Body, Change Orbit Color
+![screen-gif](./screenshots/debug.gif)
+
+### Light Effects
+Basic light effects (ambient + diffuse)
+![screen-gif](./screenshots/lights.gif)
+
+### Skybox
+Milky way skybox so it feels spacy (actual word btw)
+![screen-gif](./screenshots/skybox.gif)
+
 ### Uses Kepler's Equation to calculate orbital position
-The orbital parameters should be pretty accurate (along with relative sizes and distances)
+Planets have different orbital parameters that are used to calculate their orbital position at a certain point in time
 
 ### Easy Configuration:
-Properties of different celestial bodies can be configured easily using the config.json file (json handled using nlohmann json)
+Properties of different celestial bodies can be configured easily using the config.json file
 
 ```
 "Earth": {
@@ -35,14 +51,11 @@ Properties of different celestial bodies can be configured easily using the conf
 },
 ```
 
-### Debug Menu
-Camera Speed, Attach Camera to Body, Change Orbit Color
-![screen-gif](./screenshots/debug.gif)
+## External Resources Used
+[nlohmann json](https://github.com/nlohmann/json) - Parsing JSON
 
-### Light Effects
-Basic light effects (ambient + diffuse)
-![screen-gif](./screenshots/lights.gif)
+[Dear IMGUI](https://github.com/ocornut/img) - GUI Library
 
-### Skybox
-Milky way skybox so it feels spacy (actual word btw)
-![screen-gif](./screenshots/skybox.gif)
+[STB Image](https://github.com/ocornut/img) - Loading Images
+
+[Planet Pixel Emporium](https://planetpixelemporium.com) - Planet Textures
