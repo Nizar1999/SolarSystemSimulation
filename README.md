@@ -10,20 +10,24 @@
 Mess around with OpenGL and Dear ImGui and make a cool rendering project
 
 ## Showcase
+
 ![screen-gif](./screenshots/preview.gif)
 
 ## Features
 
 ### Configuration Menu
 Camera Speed, Attach Camera to Body, Change Orbit Color
+
 ![screen-gif](./screenshots/debug.gif)
 
 ### Light Effects
 Ambient + Diffuse
+
 ![screen-gif](./screenshots/lights.gif)
 
 ### Skybox
 Milky way skybox so it feels spacy (actual word btw)
+
 ![screen-gif](./screenshots/skybox.gif)
 
 ### Uses Kepler's Equation to Calculate Orbital Position
