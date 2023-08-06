@@ -1,5 +1,4 @@
-<p align="center">
-  <img src="https://github.com/Nizar1999/SolarSystemSimulation/blob/master/screenshots/banner.png" width = 55%; height=55% />
+<p align="center">  <img src="https://github.com/Nizar1999/SolarSystemSimulation/blob/master/screenshots/banner.png" width = 55%; height=55% />
 </p>
 
 ![Languages](https://img.shields.io/badge/-C++-9ADFB0?style=for-the-badge&logo=cplusplus)
@@ -16,7 +15,7 @@ Mess around with OpenGL and Dear ImGui and make a cool rendering project
 ## Features
 
 ### Configuration Menu
-Camera Speed, Attach Camera to Body, Change Orbit Color
+Ability to configure various properties of rendering, camera, and orbit
 
 ![screen-gif](./screenshots/debug.gif)
 
