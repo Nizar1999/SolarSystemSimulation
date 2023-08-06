@@ -63,3 +63,6 @@ Properties of different celestial bodies can be configured easily using the conf
 [STB Image](https://github.com/ocornut/img) - Loading Images
 
 [Planet Pixel Emporium](https://planetpixelemporium.com) - Planet Textures
+
+## Future Work
+Refactor some elements of the code marked with //TODO
