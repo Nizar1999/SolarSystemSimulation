@@ -19,14 +19,14 @@ Camera Speed, Attach Camera to Body, Change Orbit Color
 ![screen-gif](./screenshots/debug.gif)
 
 ### Light Effects
-Basic light effects (ambient + diffuse)
+Ambient + Diffuse
 ![screen-gif](./screenshots/lights.gif)
 
 ### Skybox
 Milky way skybox so it feels spacy (actual word btw)
 ![screen-gif](./screenshots/skybox.gif)
 
-### Uses Kepler's Equation to calculate orbital position
+### Uses Kepler's Equation to Calculate Orbital Position
 Planets have different orbital parameters that are used to calculate their orbital position at a certain point in time
 
 ### Easy Configuration:
